@@ -14,7 +14,7 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
-import { deletePost } from "../../../actions/posts";
+import { deletePost, likePost } from "../../../actions/posts";
 
 const Post = ({ post, setCurrentId }) => {
     const classes = useStyles();
@@ -55,15 +55,18 @@ const Post = ({ post, setCurrentId }) => {
                 {post.title}
             </Typography>
             <CardContent>
-                <Typography variant='p' gutterBottom>
+                <Typography variant='body2' color='textSecondary' component='p'>
                     {post.message}
                 </Typography>
             </CardContent>
-            <CardActions className={classes.cardactions}>
-                <Button size='small' color='primary' onClick={() => {}}>
+            <CardActions className={classes.cardActions}>
+                <Button
+                    size='small'
+                    color='primary'
+                    onClick={() => dispatch(likePost(post._id))}
+                >
                     <ThumbUpAltIcon fontSize='small' />
-                    Like
-                    {post.likeCount}
+                    &nbsp;Like&nbsp;{post.likeCount}
                 </Button>
                 <Button
                     size='small'
@@ -71,7 +74,7 @@ const Post = ({ post, setCurrentId }) => {
                     onClick={() => dispatch(deletePost(post._id))}
                 >
                     <DeleteIcon fontSize='small' />
-                    Delete
+                    &nbsp;Delete
                 </Button>
             </CardActions>
         </Card>
