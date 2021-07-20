@@ -53,6 +53,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField
                     name='creator'
                     variant='outlined'
+                    size='small'
                     label='Creator'
                     fullWidth
                     value={postData.creator}
@@ -63,6 +64,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField
                     name='title'
                     variant='outlined'
+                    size='small'
                     label='Title'
                     fullWidth
                     value={postData.title}
@@ -73,6 +75,8 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField
                     name='message'
                     variant='outlined'
+                    multiline
+                    rows={4}
                     label='Message'
                     size='small'
                     fullWidth
@@ -84,6 +88,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField
                     name='tags'
                     variant='outlined'
+                    size='small'
                     label='Tags'
                     fullWidth
                     value={postData.tags}
